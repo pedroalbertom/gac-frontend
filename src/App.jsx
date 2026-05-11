@@ -5,18 +5,89 @@ import { BrowserRouter, Routes, Route, Link, Outlet, useNavigate } from 'react-r
 
 const Login = () => {
   const navigate = useNavigate();
+
   return (
-    <div style={{ padding: '50px', textAlign: 'center' }}>
-      <h1>GAC Unifor - Login</h1>
-      <form onSubmit={(e) => { e.preventDefault(); navigate('/dashboard'); }}>
-        <div>
-          <input type="text" placeholder="Matrícula" required />
+    <div style={{ display: 'flex', minHeight: '100vh', fontFamily: 'sans-serif' }}>
+      
+      <div style={{ 
+        flex: 1, 
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center', 
+        padding: '50px', 
+        backgroundColor: '#f9f9f9',
+        borderRight: '1px solid #ddd'
+      }}>
+        <div style={{ maxWidth: '400px', margin: '0 auto' }}> 
+          <h1>GAC Unifor</h1>
+          <p>Gestão de Ativos e Chaves</p>
+          
+          <h3>Faça seu login</h3>
+          <form onSubmit={(e) => { e.preventDefault(); navigate('/dashboard'); }}>
+            <div style={{ marginBottom: '15px' }}>
+              <label htmlFor="matricula" style={{ display: 'block', marginBottom: '5px' }}>Matrícula:</label>
+              <input 
+                id="matricula"
+                type="text" 
+                placeholder="Digite sua matrícula" 
+                required 
+                style={{ width: '100%', padding: '10px', boxSizing: 'border-box' }}
+              />
+            </div>
+            
+            <div style={{ marginBottom: '20px' }}>
+              <label htmlFor="senha" style={{ display: 'block', marginBottom: '5px' }}>Senha:</label>
+              <input 
+                id="senha"
+                type="password" 
+                placeholder="Digite sua senha" 
+                required 
+                style={{ width: '100%', padding: '10px', boxSizing: 'border-box' }}
+              />
+            </div>
+            
+            <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer' }}>
+              Entrar no Sistema
+            </button>
+          </form>
+          
+          <p style={{ marginTop: '20px', fontSize: '0.9em' }}>
+            Esqueceu a senha? <a href="#">Clique aqui</a>.
+          </p>
         </div>
-        <div style={{ margin: '10px 0' }}>
-          <input type="password" placeholder="Senha" required />
+      </div>
+
+      <div style={{ 
+        flex: 1,
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center',
+        padding: '50px', 
+        backgroundColor: '#fff', 
+        color: '#333'
+      }}>
+        <div style={{ maxWidth: '500px', margin: '0 auto' }}>
+          <h2>Bem-vindo ao GAC</h2>
+          <p>
+            O Sistema de Gestão de Ativos e Chaves (GAC) da Unifor foi desenvolvido para 
+            facilitar o controle e a reserva de equipamentos e espaços da universidade.
+          </p>
+          
+          <h3>Funcionalidades Principais:</h3>
+          <ul>
+            <li>Reserva online de projetores e outros equipamentos.</li>
+            <li>Controle de retirada e devolução de chaves de laboratórios.</li>
+            <li>Histórico completo de utilizações por professor/funcionário.</li>
+            <li>Relatórios de disponibilidade em tempo real.</li>
+          </ul>
+          
+          <div style={{ marginTop: '30px', padding: '15px', border: '1px solid #ffcc00', backgroundColor: '#fffbe6' }}>
+            <strong>Aviso:</strong> Para primeiro acesso ou problemas com a senha, 
+            entre em contato com o suporte da TI no bloco M ou ramal 1234.
+          </div>
         </div>
-        <button type="submit">Entrar no Sistema</button>
-      </form>
+      </div>
+      
     </div>
   );
 };
